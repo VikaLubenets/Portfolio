@@ -1,10 +1,10 @@
 const AboutPage = () => {
   return (
-    <div>
+    <section>
       <div>
         about page
       </div>
-    </div>
+    </section>
   )
 }
 

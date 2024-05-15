@@ -1,10 +1,10 @@
 const ContactPage = () => {
   return (
-    <div>
+    <section>
       <div>
         contact page
       </div>
-    </div>
+    </section>
   )
 };
 

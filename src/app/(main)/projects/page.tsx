@@ -1,10 +1,10 @@
 const ProjectPage = () => {
   return (
-    <div>
+    <section>
       <div>
         projects page
       </div>
-    </div>
+    </section>
   )
 }
 
