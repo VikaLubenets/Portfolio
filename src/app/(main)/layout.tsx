@@ -9,7 +9,7 @@ const MainLayout = ({children}: Props) => {
   return (
     <>
       <NavBar />
-      <main className="flex justify-center items-center h-screen w-full">
+      <main className="flex justify-center items-center h-full w-full">
           {children}
       </main>
     </>

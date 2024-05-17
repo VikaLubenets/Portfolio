@@ -14,7 +14,7 @@ export const NavBarItem = ({
 
   return (
     <div className="justify-start">
-      <Link href={href} className="flex items-center justify-center">
+      <Link href={href} className="flex items-center justify-center text-white">
         {label}
       </Link>
     </div>
