@@ -9,6 +9,7 @@ import Bird from '@/models/bird';
 import Plane from '@/models/plane';
 import { Vector3 } from 'three';
 import HomeInfo from '@/components/HomeInfo/HomeInfo';
+import Image from 'next/image';
 
 const App = () => {
   const audioRef = useRef(new Audio('/assets/sakura.mp3'));
@@ -17,12 +18,14 @@ const App = () => {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
 
   useEffect(() => {
+    const audio = audioRef.current;
+  
     if (isPlayingMusic) {
-      audioRef.current.play();
+      audio.play();
     }
-
+  
     return () => {
-      audioRef.current.pause();
+      audio.pause();
     };
   }, [isPlayingMusic]);
 
@@ -105,12 +108,14 @@ const App = () => {
         </Canvas>
 
         <div className='absolute bottom-2 left-2'>
-          <img
-            src={!isPlayingMusic ? '/assets/icons/soundoff.png' : '/assets/icons/soundon.png'}
-            alt='jukebox'
-            onClick={() => setIsPlayingMusic(!isPlayingMusic)}
-            className='w-10 h-10 cursor-pointer object-contain'
-          />
+        <Image 
+          src={!isPlayingMusic ? '/assets/icons/soundoff.png' : '/assets/icons/soundon.png'} 
+          alt='jukebox'
+          className='w-10 h-10 cursor-pointer object-contain' 
+          width={50} 
+          height={50}
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+        />
         </div>
       </section>
     </>

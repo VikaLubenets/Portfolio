@@ -113,8 +113,7 @@ export const projects = [
   theme: 'btn-back-yellow',
   name: 'Film Library',
   description: `Developed a responsive web application for browsing and searching movies and TV series, featuring detailed film pages, 
-  user authentication, and a random film suggestion feature. The app leverages Redux for state management, RTK Query for API requests, 
-  and offers advanced filtering, search history, and pagination.
+  user authentication, and a random film suggestion feature.
   
   For sign in use these details:
   login - 'admin'

@@ -8,7 +8,7 @@ Title: Fox's islands
 'use client '
 
 import { a } from "@react-spring/three";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
@@ -27,86 +27,81 @@ const Island = ({
   const rotationSpeed = useRef(0);
   const dampingFactor = 0.95;
 
-  const handlePointerDown = (event) => {
+  const handlePointerDown = useCallback((event) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(true);
 
     const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-
     lastX.current = clientX;
-  };
+  }, [setIsRotating]);
 
-  const handlePointerUp = (event) => {
+  const handlePointerUp = useCallback((event) => {
     event.stopPropagation();
     event.preventDefault();
     setIsRotating(false);
-  };
+  }, [setIsRotating]);
 
-  const handlePointerMove = (event) => {
+  const handlePointerMove = useCallback((event) => {
     event.stopPropagation();
     event.preventDefault();
     if (isRotating) {
       const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-
       const delta = (clientX - lastX.current) / viewport.width;
 
       islandRef.current.rotation.y += delta * 0.01 * Math.PI;
-
       lastX.current = clientX;
 
       rotationSpeed.current = delta * 0.01 * Math.PI;
     }
-  };
+  }, [isRotating, viewport.width]);
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = useCallback((event) => {
     if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
-
       islandRef.current.rotation.y += 0.005 * Math.PI;
       rotationSpeed.current = 0.007;
     } else if (event.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
-
       islandRef.current.rotation.y -= 0.005 * Math.PI;
       rotationSpeed.current = -0.007;
     }
-  };
+  }, [isRotating, setIsRotating]);
 
-  const handleKeyUp = (event) => {
+  const handleKeyUp = useCallback((event) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       setIsRotating(false);
     }
-  };
+  }, [setIsRotating]);
 
-  const handleTouchStart = (e) => {
+  const handleTouchStart = useCallback((e) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
-  
+
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     lastX.current = clientX;
-  }
-  
-  const handleTouchEnd = (e) => {
+  }, [setIsRotating]);
+
+  const handleTouchEnd = useCallback((e) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
-  }
-  
-  const handleTouchMove = (e) => {
+  }, [setIsRotating]);
+
+  const handleTouchMove = useCallback((e) => {
     e.stopPropagation();
     e.preventDefault();
-  
+
     if (isRotating) {
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
-  
+
       islandRef.current.rotation.y += delta * 0.01 * Math.PI;
       lastX.current = clientX;
       rotationSpeed.current = delta * 0.01 * Math.PI;
     }
-  }
+  }, [isRotating, viewport.width]);
 
   useEffect(() => {
     const canvas = gl.domElement;
@@ -129,8 +124,17 @@ const Island = ({
       canvas.removeEventListener("touchend", handleTouchEnd);
       canvas.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
-
+  }, [
+    gl,
+    handlePointerDown, 
+    handlePointerUp, 
+    handlePointerMove,
+    handleKeyDown,
+    handleKeyUp,
+    handleTouchEnd,
+    handleTouchMove,
+    handleTouchStart
+  ]);
 
   useFrame(() => {
     if (!isRotating) {
@@ -167,7 +171,6 @@ const Island = ({
   });
 
   return (
-    // {Island 3D model from: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be7785907}
     <a.group ref={islandRef} {...props}>
       <mesh
         geometry={nodes.polySurface944_tree_body_0.geometry}

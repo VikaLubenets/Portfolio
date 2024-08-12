@@ -12,7 +12,7 @@ const Bird = () => {
 
   useEffect(() => {
     actions["Take 001"]!.play();
-  }, []);
+  }, [actions]);
 
   useFrame(({ clock, camera }) => {
     if (birdRef.current) {

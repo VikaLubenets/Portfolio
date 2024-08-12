@@ -3,6 +3,7 @@
 import CTA from "@/components/CTA/CTA";
 import { projects } from "@/constants/constants";
 import Link from "next/link";
+import Image from 'next/image'
 
 const Projects = () => {
   return (
@@ -15,7 +16,7 @@ const Projects = () => {
       </h1>
 
       <p className='text-slate-500 mt-2 leading-relaxed'>
-        I've embarked on numerous projects throughout the years, but these are
+        I&apos;ve embarked on numerous projects throughout the years, but these are
         the ones I hold closest to my heart. Many of them are open-source, so if
         you come across something that piques your interest, feel free to
         explore the codebase and contribute your ideas for further enhancements.
@@ -28,11 +29,13 @@ const Projects = () => {
             <div className='block-container w-12 h-12'>
               <div className={`btn-back rounded-xl ${project.theme}`} />
               <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={project.iconUrl}
-                  alt='threads'
-                  className='w-1/2 h-1/2 object-contain'
-                />
+              <Image
+                src={project.iconUrl}
+                alt='threads'
+                className='w-1/2 h-1/2 object-contain'
+                width={50} 
+                height={50} 
+              />
               </div>
             </div>
 
@@ -61,10 +64,12 @@ const Projects = () => {
                   >
                     Link to repository
                   </Link>
-                  <img
+                  <Image
                     src={'/assets/icons/arrow.svg'}
                     alt='arrow'
                     className='w-4 h-4 object-contain'
+                    width={16} 
+                    height={16}
                   />
                 </div>
                 <div className='mt-5 flex items-center gap-2 font-poppins'>
@@ -76,10 +81,12 @@ const Projects = () => {
                   >
                     Link to deploy
                   </Link>
-                  <img
+                  <Image
                     src={'/assets/icons/arrow.svg'}
                     alt='arrow'
                     className='w-4 h-4 object-contain'
+                    width={16}
+                    height={16}
                   />
                 </div>
               </div>
