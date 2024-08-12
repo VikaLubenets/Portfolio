@@ -11,21 +11,35 @@ import { Vector3 } from 'three';
 import HomeInfo from '@/components/HomeInfo/HomeInfo';
 import Image from 'next/image';
 
+const isClient = typeof window !== 'undefined';
+
 const App = () => {
-  const audioRef = useRef(new Audio('/assets/sakura.mp3'));
   const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = audioRef.current;
-  
-    if (isPlayingMusic) {
-      audio.play();
+    if (isClient) {
+      audioRef.current = new Audio('/assets/sakura.mp3');
     }
-  
+  }, []);
+
+  useEffect(() => {
+     const audio = audioRef.current;
+    
+    if (audio) {
+      if (isPlayingMusic) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
     return () => {
-      audio.pause();
+      if (audio) {
+        audio.pause();
+      }
     };
   }, [isPlayingMusic]);
 
