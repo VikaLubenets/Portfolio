@@ -17,12 +17,17 @@ const App = () => {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  const [biplaneScale, setBiplaneScale] = useState<[number, number, number]>([3, 3, 3]);
+  const [biplanePosition, setBiplanePosition] = useState<[number, number, number]>([0, -4, -4]);
+  const [islandScale, setIslandScale] = useState<[number, number, number]>([1, 1, 1]);
+  const [islandPosition, setIslandPosition] = useState<[number, number, number]>([0, -6.5, -43.4]);
+
   useEffect(() => {
     audioRef.current = new Audio('/assets/sakura.mp3');
   }, []);
 
   useEffect(() => {
-     const audio = audioRef.current;
+    const audio = audioRef.current;
     
     if (audio) {
       if (isPlayingMusic) {
@@ -39,50 +44,42 @@ const App = () => {
     };
   }, [isPlayingMusic]);
 
-  const adjustBiplaneForScreenSize = () => {
-    let screenScale, screenPosition;
+  useEffect(() => {
+    const updateScreenSize = () => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth < 768) {
+          setBiplaneScale([1.5, 1.5, 1.5]);
+          setBiplanePosition([0, -1.5, 0]);
+          setIslandScale([0.9, 0.9, 0.9]);
+          setIslandPosition([0, -6.5, -43.4]);
+        } else {
+          setBiplaneScale([3, 3, 3]);
+          setBiplanePosition([0, -4, -4]);
+          setIslandScale([1, 1, 1]);
+          setIslandPosition([0, -6.5, -43.4]);
+        }
+      }
+    };
 
-    if (window.innerWidth < 768) {
-      screenScale = [1.5, 1.5, 1.5];
-      screenPosition = [0, -1.5, 0];
-    } else {
-      screenScale = [3, 3, 3];
-      screenPosition = [0, -4, -4];
-    }
+    updateScreenSize();
+    window.addEventListener('resize', updateScreenSize);
 
-    return [screenScale, screenPosition];
-  };
-
-  const adjustIslandForScreenSize = () => {
-    let screenScale, screenPosition;
-
-    if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
-      screenPosition = [0, -6.5, -43.4];
-    } else {
-      screenScale = [1, 1, 1];
-      screenPosition = [0, -6.5, -43.4];
-    }
-
-    return [screenScale, screenPosition];
-  };
-
-  const [biplaneScale, biplanePosition] = adjustBiplaneForScreenSize();
-  const [islandScale, islandPosition] = adjustIslandForScreenSize();
+    return () => {
+      window.removeEventListener('resize', updateScreenSize);
+    };
+  }, []);
 
   return (
     <>
       <section className="bg-slate-300/20 relative w-full h-screen">
-      <div className="absolute top-20 left-0 right-0 z-10 text-center">
-        <div className="mx-auto max-w-[50vw]">
-          {currentStage && <HomeInfo currentStage={currentStage} />}
+        <div className="absolute top-20 left-0 right-0 z-10 text-center">
+          <div className="mx-auto max-w-[50vw]">
+            {currentStage && <HomeInfo currentStage={currentStage} />}
+          </div>
         </div>
-      </div>
         <Canvas 
-          className={`bg-transparent ${
-          isRotating ? "cursor-grabbing" : "cursor-grab"
-        }`}
-          camera={{near: 0.1, far: 1000}}
+          className={`bg-transparent ${isRotating ? "cursor-grabbing" : "cursor-grab"}`}
+          camera={{ near: 0.1, far: 1000 }}
         >
           <Suspense fallback={<Loader />}>
             <directionalLight position={[1, 1, 1]} intensity={2} />
@@ -95,37 +92,37 @@ const App = () => {
               intensity={2}
             />
             <hemisphereLight
-               args={['#b1e1ff', '#000000', 1]}
+              args={['#b1e1ff', '#000000', 1]}
             />
-              <Bird />
-              <Sky isRotating={isRotating} />
-              <Island
-                isRotating={isRotating}
-                setIsRotating={setIsRotating}
-                setCurrentStage={setCurrentStage}
-                position={islandPosition}
-                rotation={[0.1, 4.7077, 0]}
-                scale={islandScale} 
-                currentFocusPoint={undefined}          
-              />
-              <Plane
-                isRotating={isRotating}
-                position={new Vector3(biplanePosition[0], biplanePosition[1], biplanePosition[2])}
-                rotation={[0, 20.1, 0]}
-                scale={new Vector3(biplaneScale[0], biplaneScale[1], biplaneScale[2])}
-              />
+            <Bird />
+            <Sky isRotating={isRotating} />
+            <Island
+              isRotating={isRotating}
+              setIsRotating={setIsRotating}
+              setCurrentStage={setCurrentStage}
+              position={islandPosition}
+              rotation={[0.1, 4.7077, 0]}
+              scale={islandScale} 
+              currentFocusPoint={undefined}          
+            />
+            <Plane
+              isRotating={isRotating}
+              position={new Vector3(biplanePosition[0], biplanePosition[1], biplanePosition[2])}
+              rotation={[0, 20.1, 0]}
+              scale={new Vector3(biplaneScale[0], biplaneScale[1], biplaneScale[2])}
+            />
           </Suspense>
         </Canvas>
 
         <div className='absolute bottom-2 left-2'>
-        <Image 
-          src={!isPlayingMusic ? '/assets/icons/soundoff.png' : '/assets/icons/soundon.png'} 
-          alt='jukebox'
-          className='w-10 h-10 cursor-pointer object-contain' 
-          width={50} 
-          height={50}
-          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
-        />
+          <Image 
+            src={!isPlayingMusic ? '/assets/icons/soundoff.png' : '/assets/icons/soundon.png'} 
+            alt='jukebox'
+            className='w-10 h-10 cursor-pointer object-contain' 
+            width={50} 
+            height={50}
+            onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+          />
         </div>
       </section>
     </>
