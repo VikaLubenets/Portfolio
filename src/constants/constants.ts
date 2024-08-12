@@ -94,43 +94,92 @@ export const projects = [
   {
       iconUrl: '/assets/icons/pricewise.svg',
       theme: 'btn-back-red',
-      name: 'Amazon Price Tracker',
-      description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
-      link: 'https://github.com/adrianhajdin/pricewise',
+      name: 'Full-Stack Spanish learning app',
+      description: 'Developed a web application that allows to learn Spanish using a study map with various od tasks, gamified lesson mechanics, pro subscription and display of top-10 learners',
+      link: 'https://github.com/VikaLubenets/LanguageApp',
+      deployLink: 'https://language-app-vert.vercel.app/',
+      technologies: [
+        'Next.js',
+        'React',
+        'Typescript',
+        'NeonDatabase Serverless',
+        'React Admin',
+        'Tailwind',
+        'Clerk Authentication'
+    ],
   },
+  {
+  iconUrl: '/assets/icons/summiz.svg',
+  theme: 'btn-back-yellow',
+  name: 'Film Library',
+  description: `Developed a responsive web application for browsing and searching movies and TV series, featuring detailed film pages, 
+  user authentication, and a random film suggestion feature. The app leverages Redux for state management, RTK Query for API requests, 
+  and offers advanced filtering, search history, and pagination.
+  
+  For sign in use these details:
+  login - 'admin'
+  password - 'password'
+  `,
+  link: 'https://github.com/VikaLubenets/avito_internship',
+  deployLink: 'https://filmotecafilms.netlify.app',
+  technologies: [
+      'React',
+      'Webpack',
+      'Node.js',
+      'Typescript',
+      'Redux',
+      'RTK Query',
+      'ESLint',
+      'Husky',
+      'Prettier',
+      'SCSS',
+      'React Bootstrap',
+      'Jest',
+      'React Testing Library'
+  ],
+},
   {
       iconUrl: '/assets/icons/threads.svg',
       theme: 'btn-back-green',
-      name: 'Full Stack Threads Clone',
-      description: 'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-      link: 'https://github.com/adrianhajdin/threads',
+      name: 'CSS Selectors Game',
+      description: "Created a CSS selectors trainer. This trainer comprises multiple gaming levels, each with a layout example and HTML code corresponding to that level. Some layout elements are highlighted using animations. The user's task is to write CSS selectors that target all the highlighted layout elements.",
+      link: 'https://github.com/VikaLubenets/frontend-projects/tree/RSS-CSS-Selectors',
+      deployLink: 'https://vikalubenets.github.io/frontend-projects/RSS-CSS-Selectors/',
+      technologies: [
+        'Typescript',
+        'Modules',
+        'Webpack',
+        'Jest',
+        'Eslint'
+    ]
   },
   {
-      iconUrl: '/assets/icons/car.svg',
-      theme: 'btn-back-blue',
-      name: 'Car Finding App',
-      description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-      link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
-  },
-  {
-      iconUrl: '/assets/icons/snapgram.svg',
-      theme: 'btn-back-pink',
-      name: 'Full Stack Instagram Clone',
-      description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
-      link: 'https://github.com/adrianhajdin/social_media_app',
-  },
-  {
-      iconUrl: '/assets/icons/estate.svg',
-      theme: 'btn-back-black',
-      name: 'Real-Estate Application',
-      description: 'Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.',
-      link: 'https://github.com/adrianhajdin/projects_realestate',
-  },
-  {
-      iconUrl: '/assets/icons/summiz.svg',
-      theme: 'btn-back-yellow',
-      name: 'AI Summarizer Application',
-      description: 'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',
-      link: 'https://github.com/adrianhajdin/project_ai_summarizer',
-  }
+    iconUrl: '/assets/icons/threads.svg',
+    theme: 'btn-back-blue',
+    name: 'Minesweeper',
+    description: "This is my implementation of the classic game Minesweeper. In this game, players explore a grid of cells, some of which may contain hidden mines. The objective is to reveal all cells that do not contain mines while avoiding clicking on any mined cell.",
+    link: 'https://github.com/VikaLubenets/frontend-projects/tree/minesweeper',
+    deployLink: 'https://vikalubenets.github.io/frontend-projects/minesweeper/src/index.html',
+    technologies: [
+        'JavaScript',
+        'HTML5',
+        'CSS3',
+        'Responsive Design'
+    ]
+},
+{
+    iconUrl: '/assets/icons/threads.svg',
+    theme: 'btn-back-pink',
+    name: 'Shelter',
+    description: "'Shelter' is a responsive and interactive website project, consisting of a main page and a pets page, designed for an animal shelter.",
+    link: 'https://github.com/VikaLubenets/frontend-projects/tree/shelter-part3',
+    deployLink: 'https://vikalubenets.github.io/frontend-projects/shelter/pages/main/index.html#!',
+    technologies: [
+        'HTML5',
+        'CSS3',
+        'JavaScript',
+        'Responsive Design',
+        'Figma'
+    ]
+},
 ];

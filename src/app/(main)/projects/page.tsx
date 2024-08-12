@@ -41,21 +41,49 @@ const Projects = () => {
                 {project.name}
               </h4>
               <p className='mt-2 text-slate-500'>{project.description}</p>
-              <div className='mt-5 flex items-center gap-2 font-poppins'>
-                <Link
-                  href={project.link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='font-semibold text-blue-600'
-                >
-                  Live Link
-                </Link>
-                <img
-                  src={'/assets/icons/arrow.svg'}
-                  alt='arrow'
-                  className='w-4 h-4 object-contain'
-                />
+              <div className='flex gap-2 flex-wrap my-5'>
+                {project.technologies.map(tech => (
+                  <div
+                    key={tech}
+                    className="bg-blue-500 text-white rounded-xl px-4 py-2 transition-transform transform hover:scale-105 text-xs"
+                  >
+                    {tech}
+                  </div>
+                ))}
               </div>
+              <div className="flex gap-10">
+                <div className='mt-5 flex items-center gap-2 font-poppins'>
+                  <Link
+                    href={project.link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='font-semibold text-blue-600'
+                  >
+                    Link to repository
+                  </Link>
+                  <img
+                    src={'/assets/icons/arrow.svg'}
+                    alt='arrow'
+                    className='w-4 h-4 object-contain'
+                  />
+                </div>
+                <div className='mt-5 flex items-center gap-2 font-poppins'>
+                  <Link
+                    href={project.deployLink}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='font-semibold text-blue-600'
+                  >
+                    Link to deploy
+                  </Link>
+                  <img
+                    src={'/assets/icons/arrow.svg'}
+                    alt='arrow'
+                    className='w-4 h-4 object-contain'
+                  />
+                </div>
+              </div>
+              
             </div>
           </div>
         ))}

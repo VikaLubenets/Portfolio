@@ -2,7 +2,7 @@
 
 import Loader from '@/components/Loader/Loader';
 import {Canvas} from '@react-three/fiber'
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import Island from '@/models/island';
 import Sky from '@/models/sky';
 import Bird from '@/models/bird';
@@ -11,24 +11,24 @@ import { Vector3 } from 'three';
 import HomeInfo from '@/components/HomeInfo/HomeInfo';
 
 const App = () => {
+  const audioRef = useRef(new Audio('/assets/sakura.mp3'));
   const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
 
-  // useEffect(() => {
-  //   if (isPlayingMusic) {
-  //     audioRef.current.play();
-  //   }
+  useEffect(() => {
+    if (isPlayingMusic) {
+      audioRef.current.play();
+    }
 
-  //   return () => {
-  //     audioRef.current.pause();
-  //   };
-  // }, [isPlayingMusic]);
+    return () => {
+      audioRef.current.pause();
+    };
+  }, [isPlayingMusic]);
 
   const adjustBiplaneForScreenSize = () => {
     let screenScale, screenPosition;
 
-    // If screen width is less than 768px, adjust the scale and position
     if (window.innerWidth < 768) {
       screenScale = [1.5, 1.5, 1.5];
       screenPosition = [0, -1.5, 0];
@@ -103,6 +103,15 @@ const App = () => {
               />
           </Suspense>
         </Canvas>
+
+        <div className='absolute bottom-2 left-2'>
+          <img
+            src={!isPlayingMusic ? '/assets/icons/soundoff.png' : '/assets/icons/soundon.png'}
+            alt='jukebox'
+            onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+            className='w-10 h-10 cursor-pointer object-contain'
+          />
+        </div>
       </section>
     </>
   )
