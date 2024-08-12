@@ -18,9 +18,7 @@ const App = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      audioRef.current = new Audio('/assets/sakura.mp3');
-    }
+    audioRef.current = new Audio('/assets/sakura.mp3');
   }, []);
 
   useEffect(() => {
