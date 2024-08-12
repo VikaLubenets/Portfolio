@@ -11,8 +11,6 @@ import { Vector3 } from 'three';
 import HomeInfo from '@/components/HomeInfo/HomeInfo';
 import Image from 'next/image';
 
-const isClient = typeof window !== 'undefined';
-
 const App = () => {
   const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
@@ -20,7 +18,7 @@ const App = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (isClient) {
+    if (typeof window !== 'undefined') {
       audioRef.current = new Audio('/assets/sakura.mp3');
     }
   }, []);
