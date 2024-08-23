@@ -17,6 +17,7 @@ export const NavBar = () => {
           <NavBarItem label="About" href={"/about"}/>
           <NavBarItem label="Projects" href={"/projects"}/>
           <NavBarItem label="Contact" href={"/contact"}/>
+          <NavBarItem label="Main" href={"/main"}/>
         </nav>
     </header>
   )

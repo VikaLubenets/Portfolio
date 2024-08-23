@@ -38,7 +38,7 @@ const InfoBox = ({text, link, btnText}: InfoBoxProps) => {
 const renderContent: RenderContent = {
   1: (
     <h1 className="sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5">
-      Hi! I am <span className="text-semibold">Viktoria</span>  👋, a Software Engineer from Serbia. Welcome to my website, feel free to explore it.
+      Hi! I am <span className="text-semibold">Viktoria</span>  👋, a Frontend Developer from Serbia. Welcome to my website, feel free to explore it.
     </h1>
   ),
   2: (

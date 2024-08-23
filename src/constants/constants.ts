@@ -62,7 +62,7 @@ export const experiences = [
       company_name: "Children development center 'Svetvorchestva'",
       icon: '/assets/images/logo.svg',
       iconBg: "#accbe1",
-      date: "September 2023 - May 2024",
+      date: "September 2023 - current time",
       points: [
           "Developing and maintaining web applications using React.js and other related technologies.",
           "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
