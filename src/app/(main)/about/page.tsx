@@ -64,6 +64,12 @@ const About = () => {
                 >
                   {experience.company_name}
                 </p>
+                <p
+                  className='text-black-500/50 font-normal pl-1 text-sm'
+                  style={{ marginTop: 5 }}
+                >
+                  {experience.date}
+                </p>
               </div>
 
               <ul className='my-5 list-disc ml-5 space-y-2'>
