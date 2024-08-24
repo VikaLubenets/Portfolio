@@ -35,8 +35,9 @@ const About = () => {
           {skills.map((skill) => (
             <div className='block-container w-20 h-20' key={skill.name}>
               <div className='btn-back rounded-xl' />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
+              <div className='btn-front rounded-xl flex justify-center items-center flex-col'>
                 <Image src={skill.imageUrl} alt={skill.name} className='w-1/2 h-1/2 object-contain' width={50} height={50}/>
+                <p className="text-sm pt-1 text-center">{skill.name}</p>
               </div>
             </div>
           ))}
@@ -51,7 +52,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className='mt-12 flex'>
+        <div className='mt-12 flex flex-col'>
           {experiences.map((experience, index) => (
             <>
               <div>

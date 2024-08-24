@@ -53,24 +53,79 @@ export const skills = [
       imageUrl:'/assets/icons/typescript.svg',
       name: "TypeScript",
       type: "Frontend",
+  },
+  {
+    imageUrl:'/assets/icons/mongodb.svg',
+    name: "MongoDB",
+    type: "Frontend",
+  },
+  {
+    imageUrl:'/assets/icons/reactnative.svg',
+    name: "React Native",
+    type: "Frontend",
+  }
+  ,
+  {
+    imageUrl:'/assets/icons/firebase.svg',
+    name: "Firebase",
+    type: "Frontend",
   }
 ];
 
 export const experiences = [
-  {
-      title: "React Developer",
-      company_name: "Children development center 'Svetvorchestva'",
-      icon: '/assets/images/logo.svg',
-      iconBg: "#accbe1",
-      date: "September 2023 - current time",
-      points: [
-          "Developing and maintaining web applications using React.js and other related technologies.",
-          "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-          "Implementing responsive design and ensuring cross-browser compatibility.",
-          "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-  }
-];
+    {
+        title: "Junior Frontend Developer (remote role)",
+        company_name: "Children Development Center 'Svetvorchestva', Tver, Russia",
+        icon: '/assets/images/logo.svg',
+        iconBg: "#accbe1",
+        date: "February 2024 - August 2024",
+        points: [
+            "Developed the client-side of a new application for the center's clients using Next.js, React, Tailwind CSS, and TypeScript.",
+            "Implemented a scheduling feature for teachers in the admin panel calendar, with automatic display in the users' timetable.",
+            "Participated in the code review process, providing feedback and suggestions for code improvement.",
+        ],
+    },
+    {
+        title: "Frontend Developer Intern (hybrid role)",
+        company_name: "Payler App Startup, Tbilisi, Georgia",
+        icon: '/assets/images/logo.svg',
+        iconBg: "#accbe1",
+        date: "November 2023 - February 2024",
+        points: [
+            "Developed and maintained React components for a personal finance management web application.",
+            "Collaborated with cross-functional teams, including designers, product managers, and backend developers, to deliver a high-quality product.",
+            "Enhanced responsive and adaptive design of the web application using CSS and SASS.",
+            "Actively participated in code reviews, ensuring code quality and adherence to best practices.",
+        ],
+    },
+    {
+        title: "React Developer Bootcamp",
+        company_name: "RS School – React Course",
+        icon: '/assets/images/logo.svg',
+        iconBg: "#accbe1",
+        date: "October 2023 - January 2024",
+        points: [
+            "Developed React components and hooks as part of a 3-person team under mentor's control.",
+            "Managed state using Redux Toolkit, RTK Query, and Context API.",
+            "Set up React Routing and wrote tests using React Testing Library.",
+        ],
+    },
+    {
+        title: "Frontend Developer Bootcamp",
+        company_name: "RS School - JavaScript/Frontend",
+        icon: '/assets/images/logo.svg',
+        iconBg: "#accbe1",
+        date: "January 2023 - September 2023",
+        points: [
+            "Built SPA websites and worked on a group e-commerce project using the Commercetools API under mentor's control with team of 3.",
+            "Created layouts and implemented adaptive, responsive design.",
+            "Handled form validation, user authorization, and code testing.",
+            "Used version control systems like Git and participated in code reviews.",
+            "Set up tooling including Webpack, ESLint, Prettier, Husky, Jest, and TypeScript.",
+        ],
+    },
+  ];
+  
 
 export const socialLinks = [
   {
