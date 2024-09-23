@@ -74,6 +74,19 @@ export const skills = [
 
 export const experiences = [
     {
+        title: "Frontend Developer (remote pjoject-based role)",
+        company_name: "IQManager, Moscow, Russia",
+        icon: "/assets/images/logo.svg",
+        iconBg: "#accbe1",
+        date: "August 2024 - Present",
+        points: [
+            "Collaborated with a development team to redesign and rebuild a web marketplace platform using React, Next.js, Tailwind CSS, and TypeScript.",
+            "Developed a comprehensive content management system (CMS) to manage contracts, users, and performers.",
+            "Optimized components for maximum performance across a wide array of web-capable devices and browsers.",
+            "Worked in an Agile environment, contributing to sprint planning, daily stand-ups, and code reviews."
+        ]
+    },
+    {
         title: "Junior Frontend Developer (remote role)",
         company_name: "Children Development Center 'Svetvorchestva', Tver, Russia",
         icon: '/assets/images/logo.svg',
