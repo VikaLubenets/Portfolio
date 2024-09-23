@@ -91,7 +91,7 @@ export const experiences = [
         company_name: "Children Development Center 'Svetvorchestva', Tver, Russia",
         icon: '/assets/images/logo.svg',
         iconBg: "#accbe1",
-        date: "February 2024 - August 2024",
+        date: "April 2024 - August 2024",
         points: [
             "Developed the client-side of a new application for the center's clients using Next.js, React, Tailwind CSS, and TypeScript.",
             "Implemented a scheduling feature for teachers in the admin panel calendar, with automatic display in the users' timetable.",
@@ -103,7 +103,7 @@ export const experiences = [
         company_name: "Payler App Startup, Tbilisi, Georgia",
         icon: '/assets/images/logo.svg',
         iconBg: "#accbe1",
-        date: "November 2023 - February 2024",
+        date: "January 2024 - April 2024",
         points: [
             "Developed and maintained React components for a personal finance management web application.",
             "Collaborated with cross-functional teams, including designers, product managers, and backend developers, to deliver a high-quality product.",
